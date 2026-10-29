@@ -1,5 +1,9 @@
 import type { BrandForm, Result } from './types'
-const API = (import.meta.env.VITE_API_URL as string | undefined) ?? 'http://localhost:8000'
+const API = (import.meta.env.VITE_API_URL as string | undefined)?.replace(/\/+$/, '')
+
+if (!API) {
+  throw new Error('VITE_API_URL is not configured')
+}
 export class ApiError extends Error { constructor(msg: string, public fieldErrors: Record<string, string> = {}) { super(msg) } }
 
 export async function generate(form: BrandForm, variation = 0): Promise<Result> {
