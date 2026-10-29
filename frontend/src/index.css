@@ -1,0 +1,9 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+body { @apply text-slate-900 antialiased; background: radial-gradient(1200px 500px at 50% -100px, #e0e7ff, transparent), #f8fafc; }
+@layer components {
+  .input { @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 disabled:opacity-60 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-indigo-600 text-white shadow hover:bg-indigo-700; }
+  .btn-ghost { @apply btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
